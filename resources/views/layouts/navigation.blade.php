@@ -1,3 +1,4 @@
+<html data-theme="nord"></html>
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -18,12 +19,38 @@
                 </div>
             </div>
 
+            <ul class="menu lg:menu-horizontal bg-base-200 rounded-box lg:mb-64">
+                <li><a>O нас</a></li>
+                <li>
+                    <details open>
+                        <summary><button class="btn btn-lg">{{__('menu.servises')}}</button></summary>
+                            <ul>
+                                <li><a href="/services">{{__('menu.service_menu.bas')}}</a></li>
+                                <li><a href="/grafik">{{__('menu.service_menu.vls')}}</a></li>
+                            </ul>
+                    </details>
+                </li>
+                <li><button class="btn btn-active btn-ghost"><a>Контакты</a></button></li>
+                <li>
+                    <details open>
+                        <summary><button class="btn btn-active btn-secondary">{{__('menu.documents')}}</button></summary>
+                            <ul>
+                                <li><a href="pages/CMR.doc">Бланк CMR</a></li>
+                                <li><a href="pages/dogovor.doc">Договор транспортной экспедиции</a></li>
+                                <li><a href="pages/pismo.doc">Изменение плательщика</a></li>
+                                <li><a href="pages/opis.doc">Опись груза</a></li>
+                            </ul>
+                    </details>
+                </li>
+                    
+            </ul>
+
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-                            <div>{{ Auth::user()->name }}</div>
+                            <div>{{ optional(Auth::user())->name }}</div>
 
                             <div class="ms-1">
                                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -75,8 +102,8 @@
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="px-4">
-                <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
-                <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+                <div class="font-medium text-base text-gray-800">{{ optional(Auth::user())->name }}</div>
+                <div class="font-medium text-sm text-gray-500">{{ optional(Auth::user())->email }}</div>
             </div>
 
             <div class="mt-3 space-y-1">
