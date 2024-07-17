@@ -16,8 +16,7 @@ use App\Http\Controllers;
 */
 Route::middleware('lang')->group(function () {
     
-Route::post('review', [Controllers\ReviewController::class,'postIndex']
-);
+Route::post('review', [Controllers\ReviewController::class,'postIndex']);
 
 Route::middleware('auth')->group(function () {
     Route::post('blog/{blog}/add_text', [Controllers\BlogController::class, 'postBlogText']);
@@ -25,14 +24,16 @@ Route::middleware('auth')->group(function () {
     Route::post('blog_text/{blog_text}/edit', [Controllers\BlogController::class, 'updateBlogText']);
     Route::get('blog_picture/{blog_text_picture}/delete', [Controllers\BlogController::class, 'deletePicture']);
 });
+Route::post('mail/{user}', [Controllers\MailController::class, 'postIndex']);
 Route::get('/', [Controllers\BaseController::class, 'getIndex'])->middleware('lang');
 Route::get('blogs', [Controllers\BlogController::class, 'getAll']);
 Route::get('blog/{blog}', [Controllers\BlogController::class, 'getOne']);
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
-
+Route::post('blog/{blog}/add_comment', [Controllers\BlogController::class, 'postAddComment']);
 Route::middleware('auth')->group(function () {
+    
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -40,6 +41,7 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
+Route::get('feed', [Controllers\FeedController::class, 'getIndex']);
 
 Route::get('/{url}', [Controllers\ArticleController::class, 'getUrl']);
 });  

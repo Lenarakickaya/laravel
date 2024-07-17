@@ -1,49 +1,62 @@
 <html data-theme="nord"></html>
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
+            
             <div class="flex">
                 <!-- Logo -->
-                <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
-                    </a>
-                </div>
-
-                <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
-                </div>
+ 
             </div>
 
-            <ul class="menu lg:menu-horizontal bg-base-200 rounded-box lg:mb-64">
-                <li><a>O нас</a></li>
-                <li>
-                    <details open>
-                        <summary><button class="btn btn-lg">{{__('menu.servises')}}</button></summary>
-                            <ul>
-                                <li><a href="/services">{{__('menu.service_menu.bas')}}</a></li>
-                                <li><a href="/grafik">{{__('menu.service_menu.vls')}}</a></li>
-                            </ul>
-                    </details>
-                </li>
-                <li><button class="btn btn-active btn-ghost"><a>Контакты</a></button></li>
-                <li>
-                    <details open>
-                        <summary><button class="btn btn-active btn-secondary">{{__('menu.documents')}}</button></summary>
-                            <ul>
-                                <li><a href="pages/CMR.doc">Бланк CMR</a></li>
-                                <li><a href="pages/dogovor.doc">Договор транспортной экспедиции</a></li>
-                                <li><a href="pages/pismo.doc">Изменение плательщика</a></li>
-                                <li><a href="pages/opis.doc">Опись груза</a></li>
-                            </ul>
-                    </details>
-                </li>
-                    
-            </ul>
+
+
+
+
+<div class="navbar bg-base-100">
+  <div class="flex-1">
+    <a class="btn btn-ghost text-xl">VIA LOGISTIC</a>
+  </div>
+
+  
+<div class="dropdown dropdown-hover">
+  <div tabindex="0" role="button" class="btn m-1">{{__('menu.servises')}}</div>
+  <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+    <li><a href="/services">{{__('menu.service_menu.bas')}}</a></li>
+    <li><a href="/grafik">{{__('menu.service_menu.vls')}}</a></li>
+  </ul>
+</div>
+<div class="dropdown dropdown-hover">
+  <div tabindex="0" role="button" class="btn m-1">{{__('menu.documents')}}</div>
+  <ul tabindex="0" class="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+    <li><a href="pages/CMR.doc">Бланк CMR</a></li>
+    <li><a href="pages/dogovor.doc">Договор транспортной экспедиции</a></li>
+    <li><a href="pages/pismo.doc">Изменение плательщика</a></li>
+    <li><a href="pages/opis.doc">Опись груза</a></li>
+  </ul>
+</div>
+
+  <div class="flex-none">
+    <ul>
+    <li><button class="btn btn-active btn-ghost"><a>Контакты</a></button></li>  
+</ul>
+    <ul class="menu menu-horizontal px-1">
+       
+        <li>
+        <details>
+          <summary>
+          <button class="btn btn-active btn-ghost"><a>О нас</a></button>
+          </summary>
+          <ul class="p-2 bg-base-100 rounded-t-none">
+            <li><a>Link 1</a></li>
+            <li><a>Link 2</a></li>
+          </ul>
+        </details>
+      </li>
+    </ul>
+  </div>
+</div>
+           
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">

@@ -1,4 +1,4 @@
-@extends('layouts.base')
+@extends('layouts.app')
 
 @section('content')
    
@@ -66,6 +66,60 @@
                     </div>
                 </div>
             </div>
+            
         </div>
     </section>
+
+    <div class="w-full bg-white rounded-lg border p-2 my-4 mx-6">
+
+        <h3 class="font-bold">Discussion</h3>
+
+        <form method="post" action="{{asset('blog/'.$blog->id.'/add_comment')}}">
+                                @csrf
+                                <div class="w-full px-3 my-2">
+                <textarea
+                    class="bg-gray-100 rounded border border-gray-400 leading-normal resize-none w-full h-20 py-2 px-3 font-medium placeholder-gray-700 focus:outline-none focus:bg-white"
+                    name="body" placeholder='Type Your Comment' required></textarea>
+                                </div>
+                                <div class="w-full flex justify-end px-3">
+                                    <input type='submit'
+                                           class="px-2.5 py-1.5 rounded-md text-white text-sm bg-indigo-500"
+                                           value='Post Comment'>
+                                </div>
+                            </form>
+
+            <div class="flex flex-col">
+
+            @foreach($comments as $comment)
+                                    <div class="border rounded-md p-3 ml-3 my-3">
+                                        <div class="flex gap-3 items-center">
+                                            <h3 class="font-bold">
+                                                {{$comment->username}}
+                                            </h3>
+                                        </div>
+                                        <p class="text-gray-600 mt-2">
+                                            {{$comment->body}}
+                                        </p>
+                                        <p class="float-right">
+                                            <em>{{$comment->created_at->diffForHumans()}}</em>
+                                        </p>
+                                    </div>
+                                @endforeach
+
+                
+
+
+
+
+
+            </div>
+
+
+
+           
+        </form>
+
+
+    </div>
 @endsection
+

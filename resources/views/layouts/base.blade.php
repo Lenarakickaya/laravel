@@ -9,6 +9,18 @@
 Надежно! Широкая география перевозок! Индивидуальный подход! 
 Доставка в срок! Безопасность!">
         <meta name="viewport" content="width=device-widht,initial-scale=1">
+
+        <meta data-n-head="ssr" property="og:type" content="{{$og_type}}">
+    <meta data-n-head="ssr" property="og:title" content="{{$og_title}}">
+    <meta data-n-head="ssr" property="og:site_name" content="{{$og_title}}">
+    <meta data-n-head="ssr" property="og:url" content="{{$og_url}}">
+    <meta data-n-head="ssr" property="og:image" content="{{$og_image}}">
+    <meta data-n-head="ssr" property="og:description" content="{{$og_description}}">
+    <meta data-n-head="ssr" property="product:plural_title" content="{{$product_plural_title}}">
+    <meta data-n-head="ssr" name="thumbnail" content="{{$og_image}}">
+    <meta data-n-head="ssr" name="twitter:title" content="{{$og_title}}">
+    <meta data-n-head="ssr" name="twitter:description" content="{{$og_description}}">
+
         @vite(['resources/css/app.css', 'resources/js/app.js'])
        <!--<link href="{{ asset('css/app.css') }}" rel="stylesheet">-->
         <title>VIA LOGISTIC надежная транспортная компания! Быстрая доставка</title> 

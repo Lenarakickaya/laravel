@@ -6,6 +6,19 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
+use App\Models\Article;
+use App\Models\Blog;
+
+use App\Models\BlogText;
+use App\Models\BlogTextPicture;
+use App\Models\Service;
+
+use App\Observers\ArticleObserver;
+use App\Observers\Blogobserver;
+
+use App\Observers\BlogTextObserver;
+use App\Observers\BlogTextPictureObserver;
+use App\Observers\ServiceObserver;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -25,7 +38,11 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        Blog::observe(BlogObserver::class);
+        BlogText::observe(BlogTextObserver::class);
+        BlogTextPicture::observe(BlogTextPictureObserver::class);
+        Service::observe(ServiceObserver::class);
+        Article::observe( ArticleObserver::class);
     }
 
     /**

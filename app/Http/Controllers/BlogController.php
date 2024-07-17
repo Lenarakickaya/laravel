@@ -11,6 +11,7 @@ use App\Actions\Imag;
 use App\Models\BlogTextPicture;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\App;
+use App\Models\Comment;
 
 
 class BlogController extends Controller
@@ -20,7 +21,8 @@ class BlogController extends Controller
         return view('blogs', compact('blogs'));
     }
     public function getOne(Blog $blog){
-        return view('blog', compact('blog'));
+        $comments = Comment::orderBy('id','DESC')->where('model_id',$blog->id)->where('model_name','Blog')->get();
+        return view ('blog', compact('blog','comments'));
     }
     public function postBlogText(Blog $blog, Request $request)
     {
@@ -61,6 +63,18 @@ class BlogController extends Controller
             }
         }
         BlogTextPicture::where('id', $blog_text_picture->id)->delete();
+        dd('blog');
+        return redirect()->back();
+    }
+    public function postAddComment(Blog $blog, Request $request){
+        $comment = new Comment;
+        $comment->username = Auth::user()->name; // $request->username
+        $comment->user_id = Auth::user()->id??'';
+        $comment->body = $request->body;
+        $comment->model_name = 'Blog';
+        $comment->model_id = $blog->id;
+        $comment->status = '';
+        $comment->save();
         return redirect()->back();
     }
 }

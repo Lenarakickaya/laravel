@@ -1,7 +1,21 @@
 
-            @extends('layouts.app')
+@extends('layouts.app')
 
-            @section('content')
+@section('content')
+
+            
+<div class="h-screen w-full flex items-center justify-center overflow-hidden bg-purple-300">
+    <div class="slider relative w-[290px] h-[290px] [transform-style:preserve-3d] animate-[rotate_30s_linear_infinite]">
+        <span style="--i:1" class="span-style"><img src="images/kollektiv.jpg" alt="img - 1" class="img-style"/></span>
+        <span style="--i:2" class="span-style"><img src="images/ruki_big.jpg" alt="img - 2" class="img-style"/></span>
+        <span style="--i:3" class="span-style"><img src="images/kollectiv_rabota.jpg" alt="img - 3" class="img-style"/></span>
+        <span style="--i:4" class="span-style"><img src="images/kollectiv_ura.jpg" alt="img - 4" class="img-style"/></span>
+        <span style="--i:5" class="span-style"><img src="images/smileok.jpg" alt="img - 5" class="img-style"/></span>
+        <span style="--i:6" class="span-style"><img src="images/shina.jpg" alt="img - 6" class="img-style"/></span>
+        <span style="--i:7" class="span-style"><img src="images/kollektiv_mnogo.jpg" alt="img - 7" class="img-style"/></span>
+        <span style="--i:8" class="span-style"><img src="images/kollectiv_rabota.jpg" alt="img - 3" class="img-style"/></span>
+    </div>
+</div>
             <section class="section" id="vialogistic">
                 <h1>...Транспортная компания VIA LOGISTIC нв рынке грузоперевозок с 2002 года.
                     Вот уже более 20 лет мы успешно работаем на отчественном рынке,  
@@ -26,7 +40,11 @@
                 </div>
             </div>   
 
-            <div class="carusel">
+
+            
+
+
+            <!--<div class="carusel">
                 <div class="image-one prev">
                     <img src="images/kollektiv.jpg">
                 </div>
@@ -39,7 +57,7 @@
                 <div class="image-one after-next">
                     <img src="images/kollectiv_ura.jpg">
                 </div>
-            </div>
+            </div>-->
 
             <div class="divcontainer">
                 
